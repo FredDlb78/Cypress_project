@@ -23,9 +23,8 @@ describe('Test basique de la page d\'accueil', () => {
         .fillUsername(user.username)
         .fillPassword(user.password)
         .clickSignUpButton()
-        .assertAlertThenAccept('Sign up successful.');
-
-        headerPage.clickSignInMenu();
+        .assertAlertThenAccept('Sign up successful.', headerPage)
+        .clickSignInMenu();
 
     });
  
