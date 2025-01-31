@@ -1,39 +1,23 @@
-const HeaderPage = require('../../support/pages/headerPage');
+import HeaderPage from '../../support/pages/headerPage';
+import BasePage from '../../support/pages/basePage';
 
-describe('Test basique de la page d\'accueil', () => {
-    const baseUrl = 'https://demoblaze.com';
-    const expectedTitle = 'Example Domain';
-    const expectedHeading = 'Example Domain';
-    const expectedRedirectUrl = 'https://www.iana.org/domains/example';
+describe("Signup feature", () => {
 
     const username = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     const headerPage = new HeaderPage();
 
     const password = 'test';
 
-
-
-
-
-
-
     beforeEach(() => {
-      // Visite la page avant chaque test
-      cy.visit(baseUrl);
-      
-      // Vérifie que la page est bien chargée
-      cy.get('body').should('be.visible');
+        headerPage.setUp();
     });
-  
+
     it('inscription', () => {
         headerPage.clickSignInMenu()
         .fillUsername(username)
         .fillPassword(password)
-        .clickSignUpButton()
+        .clickSignUp()
         .assertAlertThenAccept('Sign up successful.');
-
-        headerPage.clickSignInMenu();
-
     });
- 
+
 });

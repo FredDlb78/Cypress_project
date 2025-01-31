@@ -1,25 +1,36 @@
-// cypress/support/pages/signInPopup.js
-import 'cypress-xpath';
+import BasePage from './basePage';
 import AlertPage from './alertPage';
 const alertPage = new AlertPage();
 
+class SignInPopup extends BasePage {
 
-class SignInPopup {
+    elements = {
+        usernameInput: '#sign-username',
+        passwordInput: '#sign-password',
+        signUpButton: '//button[text()="Sign up"]'
+    };
 
     fillUsername(username) {
-        cy.get('#sign-username').click().clear().type(username);
+        this.getElementById('usernameInput')
+        .click()
+        .clear()
+        .type(username);
         return this;
     }
 
     fillPassword(password) {
-        cy.get('#sign-password').click().clear().type(password);
+        this.getElementById('passwordInput')
+        .click()
+        .clear()
+        .type(password);
         return this;
     }
 
-    clickSignUpButton() {
-        cy.xpath('//button[text()="Sign up"]').click();
+    clickSignUp() {
+        this.getElementByXpath('signUpButton')
+        .click();
         return alertPage;
     }
 }
 
-module.exports = SignInPopup; // Exporter la classe pour qu'elle puisse être importée
+export default SignInPopup;
