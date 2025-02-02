@@ -34,6 +34,17 @@ describe('Test basique de la page d\'accueil', () => {
         .fillUsername(user.username)
         .fillPassword(user.password)
         .clickLoginButton()
+        cy.wait(1000);
         cy.get('#nameofuser').should('be.visible');
+    });
+
+    it('about us', () => {
+        // Test About Us 
+        headerPage.clickAboutUs()
+        .lauchVideo()
+        .assertVideoTest()
+        .chceckUserCanIncreaseDecreaseVolume()
+        .checkUserCanFullScreen()
+        .pauseVideo();
     });
 });
