@@ -3,9 +3,9 @@ const userFactory = require('../../support/factory/userFactory');
 
 describe('Test basique de la page d\'accueil', () => {
     const baseUrl = 'https://demoblaze.com';
-    const expectedTitle = 'Example Domain';
-    const expectedHeading = 'Example Domain';
-    const expectedRedirectUrl = 'https://www.iana.org/domains/example';
+    // const expectedTitle = 'Example Domain';
+    // const expectedHeading = 'Example Domain';
+    // const expectedRedirectUrl = 'https://www.iana.org/domains/example';
     const headerPage = new HeaderPage();
 
     const user = new userFactory().newUser();
@@ -27,5 +27,13 @@ describe('Test basique de la page d\'accueil', () => {
         .clickSignInMenu();
 
     });
- 
+
+    it('login', () => {
+        // Test Login Cas passant
+        headerPage.clickLogInMenu()
+        .fillUsername(user.username)
+        .fillPassword(user.password)
+        .clickLoginButton()
+        cy.get('#nameofuser').should('be.visible');
+    });
 });
