@@ -1,12 +1,12 @@
 import HeaderPage from '../../support/pages/headerPage';
-import BasePage from '../../support/pages/basePage';
+import userFactory from '../../support/factory/userFactory';
+import LoginPopup from '../../support/pages/loginPopup';
 
 describe("Signup feature", () => {
 
-    const username = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     const headerPage = new HeaderPage();
-
-    const password = 'test';
+    const user = new userFactory().newUser();
+    const loginPopup = new LoginPopup();
 
     beforeEach(() => {
         headerPage.setUp();
@@ -14,10 +14,28 @@ describe("Signup feature", () => {
 
     it('inscription', () => {
         headerPage.clickSignInMenu()
-        .fillUsername(username)
-        .fillPassword(password)
+        .fillUsername(user.username)
+        .fillPassword(user.password)
         .clickSignUp()
         .assertAlertThenAccept('Sign up successful.');
     });
+
+    // it('login', () => {
+    //     headerPage.clickLoginMenu()
+    //     .fillUsername(user.username)
+    //     .fillPassword(user.password)
+    //     .clickLoginButton()
+    //     .clickLogoutMenu()
+    // });
+
+    it('Login', () => {
+        headerPage.clickLoginMenu()
+        .fillUsername(user.username)
+        .fillPassword(user.password)
+        .clickLoginButton()
+        .clickLogoutMenu()
+    });
+
+    
 
 });
