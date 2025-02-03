@@ -37,6 +37,15 @@ describe("Signup feature", () => {
         headerPage.clickLogoutMenu();
     });
 
+    it('About us', () => {
+        headerPage.clickAboutUsMenu()
+        .lauchVideo()
+        .assertVideoTest()
+        .chceckUserCanIncreaseDecreaseVolume()
+        .checkUserCanFullScreen()
+        .pauseVideo();
+    });
+
     
 
 });
