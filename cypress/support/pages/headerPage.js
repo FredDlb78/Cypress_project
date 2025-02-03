@@ -35,7 +35,6 @@ class HeaderPage extends BasePage {
         return this;
     }
 
-   
     clickAboutUsMenu() {
         this.getElementByXpath('aboutUsMenu').click();
         return aboutUsPopup;

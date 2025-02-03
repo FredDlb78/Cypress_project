@@ -21,13 +21,13 @@ class LoginPopup extends BasePage {
         return this;
     }
 
-        fillPassword(password) {
-            this.getElementById('passwordInput')
-            .click()
-            .wait(200)
-            .type(password)
-            .should('have.value', password);
-            return this;
+    fillPassword(password) {
+        this.getElementById('passwordInput')
+        .click()
+        .wait(200)
+        .type(password)
+        .should('have.value', password);
+        return this;
         }
 
     clickLoginButton() {
