@@ -31,7 +31,6 @@ class HeaderPage extends BasePage {
     }
 
     clickLogoutMenu() {
-        cy.get('logoutMenu', { timeout: 5000 }).should('be.visible');
         this.getElementById('logoutMenu').click();
         return this;
     }

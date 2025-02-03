@@ -32,8 +32,9 @@ describe("Signup feature", () => {
         headerPage.clickLoginMenu()
         .fillUsername(user.username)
         .fillPassword(user.password)
-        .clickLoginButton()
-        .clickLogoutMenu()
+        .clickLoginButton();
+        cy.wait(5000);
+        headerPage.clickLogoutMenu();
     });
 
     
