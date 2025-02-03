@@ -31,7 +31,7 @@ class HeaderPage extends BasePage {
     }
 
     clickLogoutMenu() {
-        this.getElementById('logoutMenu').click();
+        this.getElementById('logoutMenu', { timeout: 10000 }).should('be.visible').click();
         return this;
     }
 

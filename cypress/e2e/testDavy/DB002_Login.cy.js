@@ -8,20 +8,20 @@ describe("Login feature", () => {
     const loginPopup = new LoginPopup();
     const user = new userFactory().newUser();
 
-    beforeAll(() => {
+    before(() => {
             headerPage.setUp();
             headerPage.clickSignInMenu()
             .fillUsername(user.username)
             .fillPassword(user.password)
             .clickSignUp()
             .assertAlertThenAccept('Sign up successful.');
-    }
+    });
+
     it('Login', () => {
         headerPage.clickLoginMenu()
         .fillUsername(user.username)
         .fillPassword(user.password)
-        .clickLoginButton();
-        cy.wait(5000);
-        headerPage.clickLogoutMenu();
+        .clickLoginButton()
+        .clickLogoutMenu();
     });
 });
