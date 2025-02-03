@@ -5,6 +5,6 @@ class userFactory {
         const password = 'Test1234';
         return { username, password };
     }
-}
+} 
 
 export default userFactory;
