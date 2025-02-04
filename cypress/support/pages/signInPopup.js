@@ -13,7 +13,7 @@ class SignInPopup extends BasePage {
     fillUsername(username) {
         this.getElementById('usernameInput')
         .click()
-        .wait(200)
+        .wait(500)
         .type(username)
         .should('have.value', username);
         return this;
@@ -22,7 +22,7 @@ class SignInPopup extends BasePage {
     fillPassword(password) {
         this.getElementById('passwordInput')
         .click()
-        .wait(200)
+        .wait(500)
         .type(password)
         .should('have.value', password);
         return this;
