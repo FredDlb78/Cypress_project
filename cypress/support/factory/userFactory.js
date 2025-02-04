@@ -5,6 +5,12 @@ class userFactory {
         const password = 'Test1234';
         return { username, password };
     }
+
+    userAlreadyExists() {
+        const username = 'username123';
+        const password = 'Test1234';
+        return { username, password };
+    }
 } 
 
 export default userFactory;

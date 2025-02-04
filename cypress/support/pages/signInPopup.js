@@ -7,7 +7,8 @@ class SignInPopup extends BasePage {
     elements = {
         usernameInput: '#sign-username',
         passwordInput: '#sign-password',
-        signUpButton: '//button[text()="Sign up"]'
+        signUpButton: '//button[text()="Sign up"]',
+        closeSignInPopup: '//button[text()="Close"]'
     };
 
     fillUsername(username) {
@@ -33,6 +34,10 @@ class SignInPopup extends BasePage {
         .click();
         return alertPage;
     }
+
+
+
 }
+
 
 export default SignInPopup;
