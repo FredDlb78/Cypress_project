@@ -4,6 +4,7 @@ import HeaderPage from './headerPage';
 
 
 class AboutUsPopup {
+    
 
    
     launchVideo() {

@@ -14,7 +14,7 @@ describe("Login feature", () => {
             .fillUsername(user.username)
             .fillPassword(user.password)
             .clickSignUp()
-            .assertAlertThenAccept('Sign up successful.');
+            .assertAlertThenAccept('Sign up successful.', headerPage);
     });
 
     it('Login', () => {

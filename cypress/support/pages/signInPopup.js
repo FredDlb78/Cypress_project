@@ -1,6 +1,8 @@
 import BasePage from './basePage';
 import AlertPage from './alertPage';
+import HeaderPage from './headerPage';
 const alertPage = new AlertPage();
+
 
 class SignInPopup extends BasePage {
 
@@ -35,9 +37,17 @@ class SignInPopup extends BasePage {
         return alertPage;
     }
 
+    closeSignInPopup() {
+        cy.xpath('//div[@id="signInModal"]//button[text()="Close"]').click();
+        return new HeaderPage();    
+        
+
+    }
+
 
 
 }
+
 
 
 export default SignInPopup;
