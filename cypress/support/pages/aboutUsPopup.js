@@ -5,7 +5,7 @@ import 'cypress-xpath';
 class AboutUsPopup {
 
    
-    lauchVideo() {
+    launchVideo() {
         cy.get('*[class^="vjs-poster"]').click()    
         return this;
     }
@@ -15,7 +15,7 @@ class AboutUsPopup {
         cy.wait(5000);
         return this;
     }
-    chceckUserCanIncreaseDecreaseVolume() {
+    checkUserCanIncreaseDecreaseVolume() {
         cy.wait(5000);
         cy.get('*[class^="vjs-mute-control vjs-control vjs-button vjs-vol-3"]').click();
         cy.wait(5000);

@@ -13,16 +13,18 @@ class SignInPopup extends BasePage {
     fillUsername(username) {
         this.getElementById('usernameInput')
         .click()
-        .clear()
-        .type(username);
+        .wait(200)
+        .type(username)
+        .should('have.value', username);
         return this;
     }
 
     fillPassword(password) {
         this.getElementById('passwordInput')
         .click()
-        .clear()
-        .type(password);
+        .wait(200)
+        .type(password)
+        .should('have.value', password);
         return this;
     }
 

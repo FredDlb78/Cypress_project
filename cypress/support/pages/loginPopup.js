@@ -1,23 +1,39 @@
 // cypress/support/pages/signInPopup.js
 import 'cypress-xpath';
+import BasePage from './basePage';
 import HeaderPage from './headerPage';
 const headerPage = HeaderPage;
-class LoginPopup {
-    
+
+class LoginPopup extends BasePage {
+
+    elements = {
+        usernameInput: '#loginusername',
+        passwordInput: '#loginpassword',
+        logInButton: '//button[text()="Log in"]'
+    };
 
     fillUsername(username) {
-        cy.get('#loginusername').click().clear().type(username);
+        this.getElementById('usernameInput')
+        .click()
+        .wait(200)
+        .type(username)
+        .should('have.value', username);
         return this;
     }
 
     fillPassword(password) {
-        cy.get('#loginpassword').click().clear().type(password);
+        this.getElementById('passwordInput')
+        .click()
+        .wait(200)
+        .type(password)
+        .should('have.value', password);
         return this;
-    }
+        }
 
     clickLoginButton() {
-        cy.xpath('//button[text()="Log in"]').click();
-        return headerPage;
+        this.getElementByXpath('logInButton')
+        .click();
+        return new HeaderPage();
     }
 }
 
