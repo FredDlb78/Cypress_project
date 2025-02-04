@@ -14,8 +14,10 @@ describe("Signup feature", () => {
         .assertVideoTest()
         .checkUserCanIncreaseDecreaseVolume()
         .checkUserCanFullScreen()
-        .pauseVideo();
+        .pauseVideo()
+        .closeAboutUsPopup();
     });
+
 
     
 

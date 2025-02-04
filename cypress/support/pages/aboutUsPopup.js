@@ -1,5 +1,6 @@
 // cypress/support/pages/aboutUsPopup.js
 import 'cypress-xpath';
+import HeaderPage from './headerPage';
 
 
 class AboutUsPopup {
@@ -40,10 +41,19 @@ class AboutUsPopup {
         return this;
     }
 
+
+    closeAboutUsPopup() {
+        cy.xpath('//div[@id="videoModal"]//button[text()="Close"]').click();
+        return new HeaderPage();    
+    }
+
+
    
+
     // clickLoginButton() {
     //     cy.xpath('//button[text()="Log in"]').click();
     // }
 }
+
 
 module.exports = AboutUsPopup; // Exporter la classe pour qu'elle puisse être importée
