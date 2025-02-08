@@ -2,7 +2,10 @@
 import 'cypress-xpath';
 import BasePage from './basePage';
 import HeaderPage from './headerPage';
-const headerPage = HeaderPage;
+// const headerPage = HeaderPage;
+import AlertPage from './alertPage';
+const alertPage = new AlertPage();
+
 
 class LoginPopup extends BasePage {
 
@@ -33,6 +36,17 @@ class LoginPopup extends BasePage {
     clickLoginButton() {
         this.getElementByXpath('logInButton')
         .click();
+        return new HeaderPage();
+    }
+
+    clickLoginButtonWithIncorrectUsername() {
+        this.getElementByXpath('logInButton')
+        .click();
+        return alertPage;
+    }
+    
+    closeLoginPopup() {
+        cy.xpath('//div[@id="logInModal"]//button[text()="Close"]').click();
         return new HeaderPage();
     }
 }
