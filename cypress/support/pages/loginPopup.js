@@ -12,7 +12,8 @@ class LoginPopup extends BasePage {
     elements = {
         usernameInput: '#loginusername',
         passwordInput: '#loginpassword',
-        logInButton: '//button[text()="Log in"]'
+        logInButton: '//button[text()="Log in"]',
+        closeLoginPopup: '//div[@id="logInModal"]//button[text()="Close"]'
     };
 
     fillUsername(username) {
@@ -46,9 +47,12 @@ class LoginPopup extends BasePage {
     }
     
     closeLoginPopup() {
-        cy.xpath('//div[@id="logInModal"]//button[text()="Close"]').click();
+        this.getElementByXpath('closeLoginPopup')
+        .click();
         return new HeaderPage();
     }
+
 }
+
 
 module.exports = LoginPopup; // Exporter la classe pour qu'elle puisse être importée
