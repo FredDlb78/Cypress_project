@@ -40,7 +40,7 @@ class LoginPopup extends BasePage {
         return new HeaderPage();
     }
 
-    clickLoginButtonWithIncorrectUsername() {
+    clickLoginButtonWithIncorrectUsernamePassword() {
         this.getElementByXpath('logInButton')
         .click();
         return alertPage;

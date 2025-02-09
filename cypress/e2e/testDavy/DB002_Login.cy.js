@@ -20,25 +20,40 @@ describe("Login feature", () => {
             .assertAlertThenAccept('Sign up successful.', headerPage);
     });
 
+    // Cas passants
     it('Login', () => {
         headerPage.clickLoginMenu()
         .fillUsername(user.username)
         .fillPassword(user.password)
         .clickLoginButton()
         .clickLogoutMenu();
+
     });
 
-
+    // Cas non passants 1
     it('Login avec un username incorrect', () => {  
         headerPage.setUp();
         headerPage.clickLoginMenu()
         .fillUsername(userUnknown.username)
         .fillPassword(userUnknown.password)
-        .clickLoginButtonWithIncorrectUsername()
+        .clickLoginButtonWithIncorrectUsernamePassword()
         .assertAlertThenAccept('User does not exist.', loginPopup)
         .closeLoginPopup()
         
     });
+
+    // Cas non passants 2
+    it('Login avec un mot de passe incorrect', () => {
+        headerPage.setUp();
+        headerPage.clickLoginMenu()
+        .fillUsername(user.username)
+        .fillPassword("wrongPassword")
+        .clickLoginButtonWithIncorrectUsernamePassword()
+        .assertAlertThenAccept('Wrong password.', loginPopup)
+        .closeLoginPopup()
+
+    });
+
 
 
 
