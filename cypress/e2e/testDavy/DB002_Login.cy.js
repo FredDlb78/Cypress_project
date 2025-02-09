@@ -55,6 +55,18 @@ describe("Login feature", () => {
     });
 
 
+    // Cas non passants 3
+    it('Login avec un username vide', () => {
+        headerPage.setUp();
+        headerPage.clickLoginMenu()
+        .fillPassword(user.password)
+        .clickLoginButtonWithIncorrectUsernamePassword()
+        .assertAlertThenAccept('Please fill out Username and Password.', loginPopup)
+        .closeLoginPopup()
+    });
+
+
+
 
 
     
